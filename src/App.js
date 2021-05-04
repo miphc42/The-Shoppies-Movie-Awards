@@ -28,9 +28,8 @@ function App() {
       {data.Search &&
         data.Search.map((val, key) => {
           return (
-            <div className="movie" key={key}>
-              <p>{val.Title}</p>
-              <Card />
+            <div className="movie" key={key} >
+              <Card movie={val}/>
             </div>
           );
         })

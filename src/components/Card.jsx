@@ -1,17 +1,17 @@
 import React from 'react';
 import './Card.css'
-class Card extends React.Component {
-    render() {
-        return (
-            <div class="card">
-                <img src="" alt="Avatar" styles={"width:100%"}/>
-                <div class="container">
-                    <h4><b>John Doe</b></h4>
-                    <p>Architect & Engineer</p>
-                </div>
+const Card = (props) => {
+    const movieInfo = props.movie;
+    console.log(movieInfo);
+    return (
+        <div className="card">
+            <img src={movieInfo.Poster} alt="Avatar" styles={"width:100%"}/>
+            <div className="container">
+                <h4><b>{movieInfo.Title}</b></h4>
+                <p>{movieInfo.Year}</p>
             </div>
-        );
-    }
+        </div>
+    );
 }
 
 export default Card;
