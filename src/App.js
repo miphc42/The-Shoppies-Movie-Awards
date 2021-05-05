@@ -66,13 +66,13 @@ function App() {
         <CardColumns>
         {data.Search &&
           data.Search.map((val, key) => {
+            let buttonText = nominate.includes(val.Title) ? 'Nominated!' : 'Nominate';
             return (
               <div className="movie">
                 <Card movie={val} 
                       nominate={nominate} 
                       passToParent={childCallback}
                       buttonText={buttonText}
-                      setButtonText={setButtonText}
                   />
               </div>
             );
