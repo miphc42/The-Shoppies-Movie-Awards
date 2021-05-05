@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Card from './components/Card';
-
+import {CardColumns, CardDeck} from 'reactstrap';
 function App() {
   const [input, setInput] = useState('');
   const [movie, setMovie] = useState('');
@@ -19,21 +19,33 @@ function App() {
   return (
     <div className="App">
       <header>
-        <h2>The Shoppies Movie Awards</h2>
+        <div className="head">
+          <h2 className="title">The Shoppies Movie Awards</h2>     
+          <input type="text" placeholder="Search..." 
+            onChange={event => setInput(event.target.value)}
+          />
+          <button onClick={handleClick}>Search</button>
+        </div>
       </header>
-      <input type="text" placeholder="Search..." 
-        onChange={event => setInput(event.target.value)}
-      />
-      <button onClick={handleClick}>Search</button>
-      {data.Search &&
-        data.Search.map((val, key) => {
-          return (
-            <div className="movie" key={key} >
-              <Card movie={val}/>
-            </div>
-          );
-        })
-      }
+      <div className="list-nominate">
+        <h3>Nominees</h3>
+      </div>
+      {
+        !data.Search ? <div className="original"></div> :
+        <div className="content">
+        <CardColumns>
+        {data.Search &&
+          data.Search.map((val, key) => {
+            return (
+              <div className="movie">
+                <Card movie={val}/>
+              </div>
+            );
+          })
+        }
+        </CardColumns>
+      </div>
+      }   
     </div>
   )
 }
