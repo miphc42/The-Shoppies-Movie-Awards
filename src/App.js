@@ -4,9 +4,16 @@ import Card from './components/Card';
 import {CardColumns} from 'reactstrap';
 
 function App() {
+
   const [input, setInput] = useState('');
   const [nominate, setNominate] = useState([]);
+  const [buttonText, setButtonText] = useState('');
   const [data, setData] = useState([]);
+  
+  useEffect(() => {
+    setButtonText('Nominate');
+  }, [])
+  // fetches the json data of the omdb api movie
   const handleClick = () => {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
     .then(response =>
@@ -16,6 +23,7 @@ function App() {
     })
   }
 
+  // handles the callback from the card child
   const childCallback = (value) => {
     let len = nominate.length + 1;
     if (len < 6) {
@@ -41,11 +49,11 @@ function App() {
         {nominate.length > 0 &&
           nominate.map((val, key) => {
             return (
-              <div id={key}>
+              <div className="nominee" id={key}>
                 <p>{val}</p>
-                <button className="delete" onClick={(e) => {
-                    let id = e.target.parentNode.getAttribute("id");
-                    document.getElementById(id).remove();
+                <button className="delete" onClick={() => {
+                    nominate.pop(val);
+                    setNominate([...nominate]);
                 }}>delete</button>
               </div>
             );
@@ -60,7 +68,12 @@ function App() {
           data.Search.map((val, key) => {
             return (
               <div className="movie">
-                <Card movie={val} passToParent={childCallback}/>
+                <Card movie={val} 
+                      nominate={nominate} 
+                      passToParent={childCallback}
+                      buttonText={buttonText}
+                      setButtonText={setButtonText}
+                  />
               </div>
             );
           })
