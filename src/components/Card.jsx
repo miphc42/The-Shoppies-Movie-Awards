@@ -7,11 +7,12 @@ import {
 
 const CardComp = (props) => {
     const movieInfo = props.movie;
-    const [buttonText, setButtonText] = useState('Nominate');
-    console.log(movieInfo);
+    const [buttonText, setButtonText] = useState(true);
     const handleClick = () => {
-        if (buttonText === 'Nominate') {
-            console.log('aaaa')
+        if (buttonText) {
+            setButtonText(false);
+            props.passToParent(movieInfo.Title);
+            
         }
     }
     return (
@@ -20,7 +21,7 @@ const CardComp = (props) => {
             <CardBody>
             <CardTitle tag="h5">{movieInfo.Title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>
-            <Button onClick={handleClick}>{buttonText}</Button>
+            <Button onClick={handleClick}>Nominate</Button>
             </CardBody>
         </Card>
     );

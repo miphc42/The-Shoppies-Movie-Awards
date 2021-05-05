@@ -10,12 +10,16 @@
 }
 .head {
   margin-bottom: 20px;
+  
 }
 .list-nominate {
   width: 800px;
-  height: 200px;
+  height: 360px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-color: black;
+}
+.delete {
+  display: inline-block;
 }
 .original {
   width: 800px;
