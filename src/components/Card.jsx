@@ -11,7 +11,7 @@ const CardComp = (props) => {
     const handleClick = () => {
         if (!props.nominate.includes(movieInfo)) {
             if (props.nominate.length === 5) {
-                alert("AAAAAAAAAA")
+                alert("5 nominees are already selected!")
             } else {
                 props.passToParent(movieInfo);
             }
@@ -19,7 +19,7 @@ const CardComp = (props) => {
     }
     return (
         <Card>
-            <CardImg top width="100%" src={movieInfo.Poster} alt="Card image cap"/>
+            <CardImg top src={movieInfo.Poster} alt="Card image cap"/>
             <CardBody>
             <CardTitle tag="h5">{movieInfo.Title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>

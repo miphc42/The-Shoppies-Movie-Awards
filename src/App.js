@@ -11,13 +11,15 @@ function App() {
   const [data, setData] = useState([]);
   
   // fetches the json data of the omdb api movie
-  const handleClick = () => {
-    fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
-    .then(response =>
-      response.json())
-    .then((result) => {
-      setData(result)
-    })
+  const handleClick = (e) => {
+    if (e.key === 'Enter') {
+      fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
+      .then(response =>
+        response.json())
+      .then((result) => {
+        setData(result)
+      })
+    }
   }
 
   // handles the callback from the card child
@@ -32,55 +34,52 @@ function App() {
 
   return (
     <div className="App">
-      <header>
         <div className="head">
-          <h2 className="title">The Shoppies Movie Awards</h2>     
+          <h2 className="title">The Shoppies Movie Awards</h2>   
+        </div>
+        <div className="input">
           <input type="text" placeholder="Search..." 
+            onKeyDown={handleClick}
             onChange={event => setInput(event.target.value)}
           />
-          <button onClick={handleClick}>Search</button>
         </div>
-      </header>
-      <div className="list-nominate">
-        <h3>Nominees</h3>
-        {nominate.length > 0 &&
-          nominate.map((val, key) => {
-            return (
-              <div className="nominee" id={key}>
-                <p>{val.Title}</p>
-                <button className="delete" onClick={() => {
-                    let index = nominate.indexOf(val);
-                    nominate.splice(index, 1);
-                    console.log(val);
-                    console.log(nominate);
-                    setNominate([...nominate]);
-                }}>delete</button>
-              </div>
-            );
-          })
-        }
-      </div>
-      {
-        !data.Search ? <div className="original"></div> :
-        <div className="content">
-        <CardColumns>
-        {data.Search &&
-          data.Search.map((val, key) => {
-            let buttonText = nominate.includes(val) ? 'Nominated!' : 'Nominate';
-            return (
-              <div className="movie" key={key}>
-                <Card movie={val} 
-                      nominate={nominate} 
-                      passToParent={childCallback}
-                      buttonText={buttonText}
-                  />
-              </div>
-            );
-          })
-        }
-        </CardColumns>
-      </div>
-      }   
+      <div className="body">
+        <div className="list-nominate">
+          {nominate.length > 0 &&
+            nominate.map((val, key) => {
+              return (
+                <div className="nominee" id={key}>
+                  <p>{val.Title}</p>
+                  <button className="delete" onClick={() => {
+                      let index = nominate.indexOf(val);
+                      nominate.splice(index, 1);
+                      setNominate([...nominate]);
+                  }}>delete</button>
+                </div>
+              );
+            })
+          }
+        </div>
+        {
+          !data.Search ? <div className="original"></div> :
+          <div className="content">
+          {data.Search &&
+            data.Search.map((val, key) => {
+              let buttonText = nominate.includes(val) ? 'Nominated!' : 'Nominate';
+              return (
+                <div className="movie" key={key}>
+                  <Card movie={val} 
+                        nominate={nominate} 
+                        passToParent={childCallback}
+                        buttonText={buttonText}
+                    />
+                </div>
+              );
+            })
+          }
+        </div>
+        }  
+      </div> 
     </div>
   )
 }
