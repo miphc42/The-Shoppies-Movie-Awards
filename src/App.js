@@ -5,14 +5,11 @@ import {CardColumns} from 'reactstrap';
 
 function App() {
 
+  // hooks
   const [input, setInput] = useState('');
   const [nominate, setNominate] = useState([]);
-  const [buttonText, setButtonText] = useState('');
   const [data, setData] = useState([]);
   
-  useEffect(() => {
-    setButtonText('Nominate');
-  }, [])
   // fetches the json data of the omdb api movie
   const handleClick = () => {
     fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
@@ -50,9 +47,12 @@ function App() {
           nominate.map((val, key) => {
             return (
               <div className="nominee" id={key}>
-                <p>{val}</p>
+                <p>{val.Title}</p>
                 <button className="delete" onClick={() => {
-                    nominate.pop(val);
+                    let index = nominate.indexOf(val);
+                    nominate.splice(index, 1);
+                    console.log(val);
+                    console.log(nominate);
                     setNominate([...nominate]);
                 }}>delete</button>
               </div>
@@ -66,9 +66,9 @@ function App() {
         <CardColumns>
         {data.Search &&
           data.Search.map((val, key) => {
-            let buttonText = nominate.includes(val.Title) ? 'Nominated!' : 'Nominate';
+            let buttonText = nominate.includes(val) ? 'Nominated!' : 'Nominate';
             return (
-              <div className="movie">
+              <div className="movie" key={key}>
                 <Card movie={val} 
                       nominate={nominate} 
                       passToParent={childCallback}

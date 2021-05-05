@@ -9,11 +9,11 @@ const CardComp = (props) => {
     const movieInfo = props.movie;
     // const [buttonText, setButtonText] = useState('Nominate');
     const handleClick = () => {
-        if (!props.nominate.includes(movieInfo.Title)) {
+        if (!props.nominate.includes(movieInfo)) {
             if (props.nominate.length === 5) {
                 alert("AAAAAAAAAA")
             } else {
-                props.passToParent(movieInfo.Title);
+                props.passToParent(movieInfo);
             }
         }
     }
