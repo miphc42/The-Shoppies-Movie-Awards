@@ -1,7 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Card from './components/Card';
-import {CardColumns, CardDeck} from 'reactstrap';
+import {CardColumns} from 'reactstrap';
+
 function App() {
   const [input, setInput] = useState('');
   const [nominate, setNominate] = useState([]);
@@ -16,19 +17,14 @@ function App() {
   }
 
   const childCallback = (value) => {
-    
-    console.log(nominate)
     let len = nominate.length + 1;
     if (len < 6) {
       nominate.push(value);
       setNominate([...nominate]);
       nominate.length = len;
     }
-    console.log(nominate)
-    console.log(nominate.length)
   }
 
-  console.log(data.Search);
   return (
     <div className="App">
       <header>
@@ -43,11 +39,14 @@ function App() {
       <div className="list-nominate">
         <h3>Nominees</h3>
         {nominate.length > 0 &&
-          nominate.map(element => {
+          nominate.map((val, key) => {
             return (
-              <div>
-                <p>{element}</p>
-                <button className="delete" onClick={this.remove()}>delete</button>
+              <div id={key}>
+                <p>{val}</p>
+                <button className="delete" onClick={(e) => {
+                    let id = e.target.parentNode.getAttribute("id");
+                    document.getElementById(id).remove();
+                }}>delete</button>
               </div>
             );
           })
