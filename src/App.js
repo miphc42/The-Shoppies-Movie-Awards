@@ -60,7 +60,7 @@ function App() {
                       let index = nominate.indexOf(val);
                       nominate.splice(index, 1);
                       setNominate([...nominate]);
-                  }}><i class="fas fa-trash-alt"></i></button>
+                  }}><i class="fas fa-trash fa-lg"></i></button>
                 </div>
               );
             })
