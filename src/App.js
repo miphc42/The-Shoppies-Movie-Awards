@@ -15,7 +15,7 @@ function App() {
   // fetches the json data of the omdb api movie
   const handleClick = (e) => {
     if (e.key === 'Enter') {
-      fetch(`http://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
+      fetch(`https://www.omdbapi.com/?i=tt3896198&apikey=820dd71f&s=${input}&type=movie`)
       .then(response =>
         response.json())
       .then((result) => {
