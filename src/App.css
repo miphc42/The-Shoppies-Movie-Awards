@@ -124,6 +124,7 @@
   padding-right: 2vh;
 }
 .nominee-year {
+  margin: 0;
   flex-grow: 0;
 }
 .delete {
