@@ -20,13 +20,16 @@ const CardComp = (props) => {
     let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
     console.log(movieInfo.Poster);
     console.log(movieInfo.Title)
+    // if (movieInfo.Title.length > 42) {
+    //     document.getElementById("title").style.fontSize = '2vh';
+    // }
     return (
-        <Card>
-            <CardImg top src={link} alt="Card image cap"/>
+        <Card id="card">
+            <CardImg id="img" top src={link} alt="Card image cap"/>
             <CardBody>
-            <CardTitle tag="h5">{movieInfo.Title}</CardTitle>
+            <CardTitle id="title" tag="h5">{movieInfo.Title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>
-            <Button onClick={handleClick}>{props.buttonText}</Button>
+            <Button id="nominateButton" onClick={handleClick}>{props.buttonText}</Button>
             </CardBody>
         </Card>
     );

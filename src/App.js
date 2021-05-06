@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.css';
 import Card from './components/Card';
+import Popup from 'reactjs-popup';
+import 'reactjs-popup/dist/index.css';
 import {CardColumns} from 'reactstrap';
 
 function App() {

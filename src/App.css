@@ -8,7 +8,6 @@
 .App input{
   display: block;
   margin: 0 auto;
-  z-index: 10;
   height: 11vh;
   width: 100%;
   font-size: 20px;
@@ -21,11 +20,13 @@
 }
 
 .input {
-  /* background: yellow; */
+  border-radius: 10px;
+  background: white;
   position: absolute;
   width: 34%;
   right: 33%;
   top: 30%;
+  z-index: 100;
   /* transform: translateY(-50%); */
 }
 
@@ -33,6 +34,7 @@
   position: absolute;
   top: 38%;
   right: 91%;
+ 
 }
 
 .title {
@@ -49,8 +51,9 @@
   width: 100%;
   height: 35vh;
   background-color: #9FF07C;
-  margin-bottom: 40px;
   align-items: center;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
   flex-direction: column;
 }
 
@@ -58,15 +61,18 @@
 /* body */
 .body {
   display: flex;
+  
   justify-content: space-around;
   flex-direction: row;
-  
+  /* background-color: #EEEEEE; */
 }
 
 /* nomination div */
 .list-nominate {
-  width: 400px;
-  height: 360px;
+  margin-top: 3vh;
+  width: 70vh;
+  height: 65vh;
+  z-index: 0;
   position: sticky;
   top: 20px;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -74,29 +80,36 @@
 }
 
 .nominee {
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  width: 65vh;
+  height: 10vh;
+  margin: 2vh;
+  text-align: center;
+  padding: 3vh;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
 
 
 .original {
-  width: 800px;
-  height: 500px;
+  margin-top: 3vh;
+  width: 120vh;
+  height: 70vh;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-color: black;
 }
 .content {
+  margin-top: 3vh;
+  width: 120vh;
   display: flex;
-  /* flex-direction: row; */
-  align-items: stretch;
+  /* align-items: stretch; */
   flex-wrap: wrap;
-  /* flex-basis: content; */
-  padding: 20px;
-  justify-content: space-around;
-  max-width: 130vh;
+  padding: 4vh;
+  justify-content: space-between;
+  /* justify-content: space-evenly; */
+  /* justify-content: left; */
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-color: black;
-  background-color: #333;
 }
 
 .movie {
