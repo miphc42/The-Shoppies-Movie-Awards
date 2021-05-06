@@ -11,7 +11,6 @@ function App() {
   const [input, setInput] = useState('');
   const [nominate, setNominate] = useState([]);
   const [data, setData] = useState([]);
-  
   // fetches the json data of the omdb api movie
   const handleClick = (e) => {
     if (e.key === 'Enter') {
@@ -49,32 +48,18 @@ function App() {
           />
         </div>
       <div className="body">
-        <div className="list-nominate">
-          {nominate.length > 0 &&
-            nominate.map((val, key) => {
-              return (
-                <div className="nominee" id={key}>
-                  <p className="nominee-title">{val.Title} </p>
-                  <p className="nominee-year">{val.Year}</p>
-                  <button className="delete" onClick={() => {
-                      let index = nominate.indexOf(val);
-                      nominate.splice(index, 1);
-                      setNominate([...nominate]);
-                  }}><i class="fas fa-trash fa-lg"></i></button>
-                </div>
-              );
-            })
-          }
-        </div>
         {
           !data.Search ? <div className="original"></div> :
           <div className="content">
           {data.Search &&
             data.Search.map((val, key) => {
               var state = false;
+              var deleteState = true;
+              console.log(nominate)
               nominate.forEach(element => {
                 if (element.Title === val.Title && element.imdbID === val.imdbID) {
                    state = true;
+                   deleteState = false;
                 }
               })
               let buttonText = state ? 'Nominated!' : 'Nominate';
@@ -84,13 +69,32 @@ function App() {
                         nominate={nominate} 
                         passToParent={childCallback}
                         buttonText={buttonText}
+                        deleteState={deleteState}
                     />
                 </div>
               );
             })
           }
         </div>
-        }  
+        }
+        <div className="list-nominate">
+          {nominate.length > 0 &&
+            nominate.map((val, key) => {
+              return (
+                <div className="nominee" id={key}>
+                  <p className="nominee-title">{val.Title} </p>
+                  {/* <p className="nominee-year">{val.Year}</p> */}
+                  <div className="delete"> <div
+                  onClick={() => {
+                      let index = nominate.indexOf(val);
+                      nominate.splice(index, 1);
+                      setNominate([...nominate]);
+                  }}><i class="fas fa-trash fa-lg"></i></div> </div>
+                </div>
+              );
+            })
+          }
+        </div>  
       </div> 
     </div>
   )

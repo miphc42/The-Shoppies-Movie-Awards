@@ -7,11 +7,14 @@
 }
 
 #card {
-  height: 60vh;
+  height: 63vh;
   border: none;
 }
 #title {
-  font-size : 2.3vmin;
+  font-size : 2.5vmin;
+}
+.text-muted {
+  font-size : 2.1vmin;
 }
 #img {
   width: 100%;
@@ -19,7 +22,19 @@
 }
 
 #nominateButton {
+  padding: 0;
   width: 20vh;
+  height: 6.4vh;
+}
+#nominateButton:hover {
+  background-color: #84E572;
+  border: 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+#nominateButton:disabled {
+  background-color: black;
+  border: 0;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);

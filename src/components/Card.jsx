@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import './Card.css'
 import {
     Card, Button, CardImg, CardTitle, CardText, CardGroup,
@@ -6,8 +6,21 @@ import {
   } from 'reactstrap';
 
 const CardComp = (props) => {
+    const [disable, setDisable] = useState(false);
     const movieInfo = props.movie;
     // const [buttonText, setButtonText] = useState('Nominate');
+    console.log(props.deleteState);
+    console.log(props.buttonText)
+
+    useEffect(() => {
+        if (props.deleteState && disable) {
+            setDisable(false);
+        } else if (!props.deleteState) {
+            setDisable(true);
+        }
+    });
+    
+
     const handleClick = () => {
         var state = false;
         props.nominate.forEach(element => {
@@ -15,25 +28,23 @@ const CardComp = (props) => {
                 state = true;
             }
         })
-        if (!state) {
+        if (!state) { 
             if (props.nominate.length === 5) {
                 alert("5 nominees are already selected!")
             } else {
+                setDisable(true);
                 props.passToParent(movieInfo);
             }
         }
     }
     let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
-    // if (movieInfo.Title.length > 42) {
-    //     document.getElementById("title").style.fontSize = '2vh';
-    // }
     return (
         <Card id="card">
             <CardImg id="img" top src={link} alt="Card image cap"/>
             <CardBody>
             <CardTitle id="title" tag="h5">{movieInfo.Title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>
-            <Button id="nominateButton" onClick={handleClick}>{props.buttonText}</Button>
+            <Button disabled={disable} id="nominateButton" onClick={handleClick}>{props.buttonText}</Button>
             </CardBody>
         </Card>
     );
