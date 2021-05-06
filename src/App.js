@@ -38,7 +38,9 @@ function App() {
           <h2 className="title">The Shoppies Movie Awards</h2>   
         </div>
         <div className="input">
-          <input type="text" placeholder="Search..." 
+          <i id="search-icon" class="fas fa-search"></i>
+          <input type="text" 
+            placeholder="Search..." 
             onKeyDown={handleClick}
             onChange={event => setInput(event.target.value)}
           />

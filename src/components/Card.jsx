@@ -17,9 +17,12 @@ const CardComp = (props) => {
             }
         }
     }
+    let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
+    console.log(movieInfo.Poster);
+    console.log(movieInfo.Title)
     return (
         <Card>
-            <CardImg top src={movieInfo.Poster} alt="Card image cap"/>
+            <CardImg top src={link} alt="Card image cap"/>
             <CardBody>
             <CardTitle tag="h5">{movieInfo.Title}</CardTitle>
             <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>
