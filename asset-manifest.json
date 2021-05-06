@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/The-Shoppies-Movie-Awards/static/css/main.f5a9c007.chunk.css",
-    "main.js": "/The-Shoppies-Movie-Awards/static/js/main.922ef740.chunk.js",
-    "main.js.map": "/The-Shoppies-Movie-Awards/static/js/main.922ef740.chunk.js.map",
+    "main.css": "/The-Shoppies-Movie-Awards/static/css/main.c55553d2.chunk.css",
+    "main.js": "/The-Shoppies-Movie-Awards/static/js/main.64d61cdf.chunk.js",
+    "main.js.map": "/The-Shoppies-Movie-Awards/static/js/main.64d61cdf.chunk.js.map",
     "runtime-main.js": "/The-Shoppies-Movie-Awards/static/js/runtime-main.133cf6fc.js",
     "runtime-main.js.map": "/The-Shoppies-Movie-Awards/static/js/runtime-main.133cf6fc.js.map",
     "static/css/2.3ccbde34.chunk.css": "/The-Shoppies-Movie-Awards/static/css/2.3ccbde34.chunk.css",
-    "static/js/2.e1cb7236.chunk.js": "/The-Shoppies-Movie-Awards/static/js/2.e1cb7236.chunk.js",
-    "static/js/2.e1cb7236.chunk.js.map": "/The-Shoppies-Movie-Awards/static/js/2.e1cb7236.chunk.js.map",
+    "static/js/2.25188d98.chunk.js": "/The-Shoppies-Movie-Awards/static/js/2.25188d98.chunk.js",
+    "static/js/2.25188d98.chunk.js.map": "/The-Shoppies-Movie-Awards/static/js/2.25188d98.chunk.js.map",
     "index.html": "/The-Shoppies-Movie-Awards/index.html",
     "static/css/2.3ccbde34.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/2.3ccbde34.chunk.css.map",
-    "static/css/main.f5a9c007.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/main.f5a9c007.chunk.css.map",
-    "static/js/2.e1cb7236.chunk.js.LICENSE.txt": "/The-Shoppies-Movie-Awards/static/js/2.e1cb7236.chunk.js.LICENSE.txt",
+    "static/css/main.c55553d2.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/main.c55553d2.chunk.css.map",
+    "static/js/2.25188d98.chunk.js.LICENSE.txt": "/The-Shoppies-Movie-Awards/static/js/2.25188d98.chunk.js.LICENSE.txt",
     "static/media/font-awesome.min.css": "/The-Shoppies-Movie-Awards/static/media/fontawesome-webfont.f691f37e.woff"
   },
   "entrypoints": [
     "static/js/runtime-main.133cf6fc.js",
     "static/css/2.3ccbde34.chunk.css",
-    "static/js/2.e1cb7236.chunk.js",
-    "static/css/main.f5a9c007.chunk.css",
-    "static/js/main.922ef740.chunk.js"
+    "static/js/2.25188d98.chunk.js",
+    "static/css/main.c55553d2.chunk.css",
+    "static/js/main.64d61cdf.chunk.js"
   ]
 }
