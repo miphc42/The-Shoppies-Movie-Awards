@@ -71,7 +71,7 @@
 .list-nominate {
   margin-top: 3vh;
   width: 70vh;
-  height: 65vh;
+  height: 88vh;
   z-index: 0;
   position: sticky;
   top: 20px;
@@ -83,7 +83,7 @@
   display: flex;
   justify-content: space-between;
   width: 65vh;
-  height: 10vh;
+  height: 15vh;
   margin: 2vh;
   text-align: center;
   padding: 3vh;
@@ -94,14 +94,14 @@
 
 .original {
   margin-top: 3vh;
-  width: 120vh;
+  width: 130vh;
   height: 70vh;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  border-color: black;
+  /* border-color: black; */
 }
 .content {
   margin-top: 3vh;
-  width: 120vh;
+  width: 130vh;
   display: flex;
   /* align-items: stretch; */
   flex-wrap: wrap;
@@ -109,12 +109,30 @@
   justify-content: space-between;
   /* justify-content: space-evenly; */
   /* justify-content: left; */
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
 }
 
 .movie {
   max-width: 200px;
 }
 
+.nominee-title {
+  flex-grow: 0;
+  padding-right: 2vh;
+}
+.nominee-year {
+  flex-grow: 0;
+}
+.delete {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    flex-grow: 3;
+    border:0;
+    background:none;
+}
 
+.delete i {
+    
+}
 

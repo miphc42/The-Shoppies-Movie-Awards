@@ -19,6 +19,7 @@ function App() {
       .then(response =>
         response.json())
       .then((result) => {
+        console.log(nominate);
         setData(result)
       })
     }
@@ -27,7 +28,7 @@ function App() {
   // handles the callback from the card child
   const childCallback = (value) => {
     let len = nominate.length + 1;
-    if (len < 6) {
+    if (len <= 5) {
       nominate.push(value);
       setNominate([...nominate]);
       nominate.length = len;
@@ -53,12 +54,13 @@ function App() {
             nominate.map((val, key) => {
               return (
                 <div className="nominee" id={key}>
-                  <p>{val.Title}</p>
+                  <p className="nominee-title">{val.Title} </p>
+                  <p className="nominee-year">{val.Year}</p>
                   <button className="delete" onClick={() => {
                       let index = nominate.indexOf(val);
                       nominate.splice(index, 1);
                       setNominate([...nominate]);
-                  }}>delete</button>
+                  }}><i class="fas fa-trash-alt"></i></button>
                 </div>
               );
             })
@@ -69,7 +71,13 @@ function App() {
           <div className="content">
           {data.Search &&
             data.Search.map((val, key) => {
-              let buttonText = nominate.includes(val) ? 'Nominated!' : 'Nominate';
+              var state = false;
+              nominate.forEach(element => {
+                if (element.Title === val.Title && element.imdbID === val.imdbID) {
+                   state = true;
+                }
+              })
+              let buttonText = state ? 'Nominated!' : 'Nominate';
               return (
                 <div className="movie" key={key}>
                   <Card movie={val} 

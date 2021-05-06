@@ -9,7 +9,13 @@ const CardComp = (props) => {
     const movieInfo = props.movie;
     // const [buttonText, setButtonText] = useState('Nominate');
     const handleClick = () => {
-        if (!props.nominate.includes(movieInfo)) {
+        var state = false;
+        props.nominate.forEach(element => {
+            if (element.Title === movieInfo.Title && element.imdbID === movieInfo.imdbID) {
+                state = true;
+            }
+        })
+        if (!state) {
             if (props.nominate.length === 5) {
                 alert("5 nominees are already selected!")
             } else {
@@ -18,8 +24,6 @@ const CardComp = (props) => {
         }
     }
     let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
-    console.log(movieInfo.Poster);
-    console.log(movieInfo.Title)
     // if (movieInfo.Title.length > 42) {
     //     document.getElementById("title").style.fontSize = '2vh';
     // }
