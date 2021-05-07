@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/The-Shoppies-Movie-Awards/static/css/main.51142bf9.chunk.css",
-    "main.js": "/The-Shoppies-Movie-Awards/static/js/main.4f0ab46d.chunk.js",
-    "main.js.map": "/The-Shoppies-Movie-Awards/static/js/main.4f0ab46d.chunk.js.map",
+    "main.css": "/The-Shoppies-Movie-Awards/static/css/main.1701031a.chunk.css",
+    "main.js": "/The-Shoppies-Movie-Awards/static/js/main.429920be.chunk.js",
+    "main.js.map": "/The-Shoppies-Movie-Awards/static/js/main.429920be.chunk.js.map",
     "runtime-main.js": "/The-Shoppies-Movie-Awards/static/js/runtime-main.133cf6fc.js",
     "runtime-main.js.map": "/The-Shoppies-Movie-Awards/static/js/runtime-main.133cf6fc.js.map",
     "static/css/2.3ccbde34.chunk.css": "/The-Shoppies-Movie-Awards/static/css/2.3ccbde34.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.b630cda9.chunk.js.map": "/The-Shoppies-Movie-Awards/static/js/2.b630cda9.chunk.js.map",
     "index.html": "/The-Shoppies-Movie-Awards/index.html",
     "static/css/2.3ccbde34.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/2.3ccbde34.chunk.css.map",
-    "static/css/main.51142bf9.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/main.51142bf9.chunk.css.map",
+    "static/css/main.1701031a.chunk.css.map": "/The-Shoppies-Movie-Awards/static/css/main.1701031a.chunk.css.map",
     "static/js/2.b630cda9.chunk.js.LICENSE.txt": "/The-Shoppies-Movie-Awards/static/js/2.b630cda9.chunk.js.LICENSE.txt",
     "static/media/font-awesome.min.css": "/The-Shoppies-Movie-Awards/static/media/fontawesome-webfont.f691f37e.woff"
   },
@@ -18,7 +18,7 @@
     "static/js/runtime-main.133cf6fc.js",
     "static/css/2.3ccbde34.chunk.css",
     "static/js/2.b630cda9.chunk.js",
-    "static/css/main.51142bf9.chunk.css",
-    "static/js/main.4f0ab46d.chunk.js"
+    "static/css/main.1701031a.chunk.css",
+    "static/js/main.429920be.chunk.js"
   ]
 }
