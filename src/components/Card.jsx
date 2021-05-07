@@ -2,13 +2,20 @@ import React, {useState, useEffect} from 'react';
 import './Card.css'
 import {
     Card, Button, CardImg, CardTitle, CardText, CardGroup,
-    CardSubtitle, CardBody
+    CardSubtitle, CardBody, Modal, ModalHeader, ModalBody, ModalFooter
   } from 'reactstrap';
 
 const CardComp = (props) => {
     const [disable, setDisable] = useState(false);
+
+    const [modalText, setModalText] = useState('');
+    
+    const [modal, setModal] = useState(false);
+    
+    const toggle = () => setModal(!modal);
     const movieInfo = props.movie;
-    // const [buttonText, setButtonText] = useState('Nominate');
+
+
     console.log(props.deleteState);
     console.log(props.buttonText)
 
@@ -30,23 +37,44 @@ const CardComp = (props) => {
         })
         if (!state) { 
             if (props.nominate.length === 5) {
-                alert("5 nominees are already selected!")
+                setModal(true);
+                setModalText('Already selected maximum amount!');
             } else {
+                if (props.nominate.length === 4) {
+                    setModal(true);
+                    setModalText('5 nominees are selected!');
+                }
                 setDisable(true);
                 props.passToParent(movieInfo);
             }
         }
     }
-    let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png'
+
+    let link = movieInfo.Poster !== 'N/A' ? movieInfo.Poster : 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/ac/No_image_available.svg/600px-No_image_available.svg.png';
+    
     return (
-        <Card id="card">
-            <CardImg id="img" top src={link} alt="Card image cap"/>
-            <CardBody>
-            <CardTitle id="title" tag="h5">{movieInfo.Title}</CardTitle>
-            <CardSubtitle tag="h6" className="mb-2 text-muted">{movieInfo.Year}</CardSubtitle>
-            <Button disabled={disable} id="nominateButton" onClick={handleClick}>{props.buttonText}</Button>
-            </CardBody>
-        </Card>
+        <>
+            <Modal isOpen={modal} toggle={toggle}>
+                <ModalHeader toggle={toggle}>Attention!</ModalHeader>
+                <ModalBody> {modalText} </ModalBody>
+                <ModalFooter>
+                <Button color="secondary" onClick={toggle}>OK</Button>
+                </ModalFooter>
+            </Modal>
+            <Card id="card">
+                <CardImg id="img" top src={link} alt="Card image cap"/>
+                <CardBody>
+                <CardTitle id="title" tag="h5">{movieInfo.Title}</CardTitle>
+                <CardSubtitle id="year" tag="h6">{movieInfo.Year}</CardSubtitle>
+                <Button 
+                    disabled={disable} 
+                    id="nominateButton" 
+                    onClick={handleClick}>
+                    {props.buttonText}
+                </Button>
+                </CardBody>
+            </Card>
+        </>
     );
 }
 
