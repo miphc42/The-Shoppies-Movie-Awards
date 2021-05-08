@@ -11,6 +11,8 @@ function App() {
   const [input, setInput] = useState('');
   const [nominate, setNominate] = useState([]);
   const [data, setData] = useState([]);
+  const [exist, setExist] = useState(false);
+  const [info, setInfo] = useState('Search up your favorite movie to get started!');
   // fetches the json data of the omdb api movie
   const handleClick = (e) => {
     if (e.key === 'Enter') {
@@ -18,8 +20,19 @@ function App() {
       .then(response =>
         response.json())
       .then((result) => {
-        console.log(nominate);
-        setData(result);
+        var a = result.toString();
+        var b = data.toString();
+        console.log("CLICKKK")
+        console.log(result);
+        if (result.Response === "False" || input === "") {
+          console.log(result);
+          setInfo('No results found!');
+          setData(result);
+          setExist(false);
+        } else {
+          setExist(true);
+          setData(result);
+        }
       })
     }
   }
@@ -41,7 +54,8 @@ function App() {
         </div>
         <div className="input">
           <i id="search-icon" class="fas fa-search"></i>
-          <input type="text" 
+          <input 
+            type="text" 
             placeholder="Search..." 
             onKeyDown={handleClick}
             onChange={event => setInput(event.target.value)}
@@ -72,8 +86,8 @@ function App() {
           </div>  
         </div>
         {
-          !data.Search ? <div className="original">
-            <h5 className="original-text">Search up your favorite movie to get started!</h5>
+          !data.Search && !exist ? <div className="original">
+            <h5 className="original-text"> {info} </h5>
           </div> :
             <div className="content">
             {data.Search &&

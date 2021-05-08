@@ -12,7 +12,7 @@
   width: 100%;
   font-size: 20px;
   font-size: 3vh;
-  padding: 20px 48px;
+  padding: 2vh 4vw;
   outline: none;
   border: none;
   border-radius: 10px;
@@ -23,11 +23,11 @@
   border-radius: 10px;
   background: white;
   position: absolute;
-  width: 34%;
-  right: 33%;
+  width: 35vw;
+  /* right: 33%; */
   top: 30%;
   z-index: 100;
-  /* transform: translateY(-50%); */
+  transform: translateX(90%);
 }
 
 .input i{
@@ -41,14 +41,15 @@
   font-family: 'Bebas Neue', cursive;
   color: #333;
   margin-top: 5vh;
-  padding: 10px;
+  padding: 5vmin;
+  margin-left: auto;
+  margin-right: auto;
   font-size: 13vh;
 }
 
 /* header and search bar */
 .head {
   display: flex;
-  width: 100%;
   height: 35vh;
   background-color: #95BF47;
   flex-direction: column;
@@ -67,7 +68,7 @@
   display: flex;
   background-color: #333;
   /* border: 1px solid black; */
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-direction: row-reverse;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -78,12 +79,12 @@
 .list-header {
   display: table;
   /* overflow-wrap: inherit; */
-  margin-left: 2.5vh;
-  margin-right: 5vh;
+  margin-left: 1vw;
+  margin-right: 2.5vw;
   margin-top: 8vh;
   margin-bottom: 4vh;
   padding: 1vh;
-  width: 70vh;
+  width: 31vw;
   height: 70vh;
   z-index: 0;
   position: sticky;
@@ -96,6 +97,7 @@
 
 .nominee-header {
   padding-top: 2vh;
+  font-size: 4vmin;
 }
 
 .nominee {
@@ -103,12 +105,13 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 65vh;
+  width: 27vw;
   height: 15vh;
   margin: 2vh;
   text-align: center;
   padding: 3vh;
-  
+  margin-left: auto;
+  margin-right: auto;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
@@ -123,12 +126,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-left: 5vh;
-  margin-right: 2.5vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
   align-items: center;
   margin-top: 8vh;
   margin-bottom: 5vh;
-  width: 130vh;
+  width: 70vw;
   height: 70vh;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   background-color: #F2F3F2;
@@ -139,9 +142,9 @@
 .content {
   margin-top: 8vh;
   margin-bottom: 5vh;
-  margin-left: 5vh;
-  margin-right: 2.5vh;
-  width: 130vh;
+  margin-left: 2.5vw;
+  margin-right: 2.5vw;
+  width: 70vw;
   display: flex;
   background-color: #F2F3F2;
   /* align-items: stretch; */
@@ -155,13 +158,13 @@
 }
 
 .movie {
-  max-width: 200px;
+  max-width: 16.5vw;
 }
 
 .nominee-title {
   flex-grow: 0;
   margin: 0;
-  padding-right: 2vh;
+  padding-right: 2vw;
 }
 .nominee-year {
   margin: 0;
@@ -184,7 +187,6 @@
 
 
 footer {
-  
   background-color: #131212;
 	height: 10vh;
   padding-top: 3.3vh;
@@ -219,7 +221,7 @@ footer {
   .body {
     display: block;
     height: auto;
-    padding-bottom: 2vh;
+    padding-bottom: 1vh;
     padding-top: 3vh;
     background-color: #333;
     border-top-left-radius: 20px;
@@ -234,7 +236,7 @@ footer {
     margin-top: 1vh;
     margin-bottom: 6vh;
     padding: 1vh;
-    width: 70vh;
+    width: 75vh;
     height: 20vh;
     background-color: #F2F3F2;
     border-radius: 3px;
